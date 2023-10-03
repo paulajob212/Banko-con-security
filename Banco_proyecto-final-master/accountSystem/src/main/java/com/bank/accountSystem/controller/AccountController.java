@@ -36,6 +36,7 @@ public class AccountController {
     }
 
     //1.2 APERTURA DE CUENTA
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<Account> saveAccount(@RequestBody Account account){
         Account savedAccount = accountService.saveAccount(account);
